@@ -4,14 +4,14 @@ class Author
 
   @@id = 0
   def initialize(first_name, last_name)
-    @id = ID
+    @id = @@id
     @first_name = first_name
-    @last_name = last_name
+    @last_namre = last_name
     @items = []
     @@id += 1
   end
 
-  def add_items(item)
+  def add_item(item)
     @items << item
   end
 end
