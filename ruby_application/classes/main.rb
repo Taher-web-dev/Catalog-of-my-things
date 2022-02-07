@@ -33,25 +33,77 @@ class Main
 
   def input(inp)
     case inp
-    when 1 list_all_books
-    when 2 list_all_musicalbums
-    when 3 list_all_movies
-    when 4 list_all_games
-    when 5 list_all_genres
-    when 6 list_all_labels
-    when 7 list_all_authors
-    when 8 list_all_sources
-    when 9 add_book
-    when 10 add_a_musicalbum
-    when 11 add_a_movie
-    when 12 add_a_game
+    when 1 
+      list_all_books
+    when 2 
+      list_all_musicalbums
+    when 3 
+      list_all_movies
+    when 4 
+      list_all_games
+    when 5 
+      list_all_genres
+    when 6 
+      list_all_labels
+    when 7 
+      list_all_authors
+    when 8 
+      list_all_sources
+    when 9 
+      add_book
+    when 10 
+      add_a_musicalbum
+    when 11 
+      add_a_movie
+    when 12 
+      add_a_game
     end
+  end
+
+  def list_all_books
+    puts "ok"
+  end
+
+  def list_all_musicalbums
+    puts "ok"
+  end
+
+  def list_all_movies
+    puts "ok"
+  end
+
+  def list_all_games
+    puts "ok"
+  end
+  def list_all_genres
+    puts "ok"
+  end 
+  def list_all_labels
+    puts "ok"
+  end
+  def list_all_authors
+    puts "ok"
+  end
+  def list_all_sources
+    puts "ok"
+  end
+  def add_book
+    puts "ok"
+  end
+  def add_a_musicalbum
+    puts "ok"
+  end
+  def add_a_movie
+    puts "ok"
+  end
+  def add_a_game
+    puts "ok"
   end
 end
 
 def app
-  app = Main.new
-  app.run
+  application = Main.new
+  application.run
 end
 
 app
