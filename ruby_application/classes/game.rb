@@ -1,5 +1,5 @@
 require 'date'
-#require './item'
+# require './item'
 require './ruby_application/classes/item'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -7,7 +7,7 @@ class Game < Item
   def initialize(publish_date, multiplayer, last_played_at, archived: true)
     super(publish_date, archived: archived)
     @multiplayer = multiplayer
-    @last_played_at = Date::strptime(last_played_at,"%d-%m-%Y")
+    @last_played_at = Date.strptime(last_played_at, '%d-%m-%Y')
   end
 
   private

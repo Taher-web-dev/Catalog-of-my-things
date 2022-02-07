@@ -2,10 +2,11 @@ require 'date'
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date
   attr_reader :id, :archived
+
   @@id = 0
   def initialize(publish_date, archived: false)
     @id = @@id
-    @publish_date = Date::strptime(publish_date,"%d-%m-%Y")
+    @publish_date = Date.strptime(publish_date, '%d-%m-%Y')
     @archived = archived
     @@id += 1
   end
