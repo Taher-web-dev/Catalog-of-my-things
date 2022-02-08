@@ -46,7 +46,7 @@ class Main
       when 1
         list_books
       when 2
-        list_all_musicalbums
+        list_albums
       when 3
         list_all_movies
       when 4
@@ -74,14 +74,6 @@ class Main
     end
   end
 
-  # def list_all_books
-  #   puts 'ok'
-  # end
-
-  def list_all_musicalbums
-    puts 'ok'
-  end
-
   def list_all_movies
     puts 'ok'
   end
@@ -94,10 +86,6 @@ class Main
     puts 'ok'
   end
 
-  # def list_all_labels
-  #   puts 'ok'
-  # end
-
   def list_all_authors
     puts 'ok'
   end
@@ -106,12 +94,6 @@ class Main
     puts 'ok'
   end
 
-  # def add_book
-  #   puts "ok"
-  # end
-  # def add_a_musicalbum
-  #   puts "ok"
-  # end
   def add_a_movie
     puts 'ok'
   end
