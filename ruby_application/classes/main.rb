@@ -22,15 +22,17 @@ class Main
       '13' => 'Exit'
     }
   end
+
   def load_games
     path = './saving_files/game.json'
     if File.exist?(path)
       contenu = JSON.parse(File.read(path))
       contenu.each do |game|
-        Game.new(game["publish_date"], game["multiplayer"], game["last_played_at"])
+        Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
       end
     end
   end
+
   def load_data
     load_games
   end

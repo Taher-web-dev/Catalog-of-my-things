@@ -35,7 +35,7 @@ module AppFcts
 
   def list_all_games
     games = Game::ALL_GAMES.all_games
-    if games.size > 0
+    if games.size.positive?
       games.each do |game|
         puts "[GAME] ID:#{game.id}, Publish Date:#{game.publish_date}, Last played at:#{game.last_played_at}"
       end
@@ -55,12 +55,12 @@ module AppFcts
 
   def list_all_authors
     authors = Author::ALL_AUTHORS.all_authors
-    if authors.size > 0
+    if authors.size.positive?
       authors.each do |author|
         puts "ID:#{author.id}, Name:#{author.first_name} #{author.last_name}"
       end
-    else 
-        puts 'No authors to display...'
+    else
+      puts 'No authors to display...'
     end
     sleep 2
   end
@@ -71,7 +71,7 @@ module AppFcts
 
   def add_book
     book = Book.new('Editions europe', 'covered', '12-10-2020')
-    book.add_author(Author.new('Michael','Nakhla'))
+    book.add_author(Author.new('Michael', 'Nakhla'))
   end
 
   def add_a_musicalbum
@@ -104,7 +104,7 @@ module AppFcts
     puts 'Game created successfuly'
     sleep 2
   end
-  
+
   def run
     loop do
       puts "Enter a number\n"
@@ -118,6 +118,7 @@ module AppFcts
       break if user_input == 13
     end
   end
+
   private
 
   def control_date(entry_date, text)
