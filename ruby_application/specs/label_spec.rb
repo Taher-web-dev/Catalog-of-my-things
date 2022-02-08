@@ -3,9 +3,8 @@ require './classes/item'
 
 describe Label do
   context 'Test the label class' do
-      newlabel = Label.new('test label', 'black')
-      newitem = Item.new('2-2-2022')
-    
+    newlabel = Label.new('test label', 'black')
+    newitem = Item.new('2-2-2022')
 
     it 'test the label title' do
       expect(newlabel.title).to eq 'test label'
@@ -23,5 +22,5 @@ describe Label do
       newlabel.add_item(newitem)
       expect(newlabel.items.size).to eq(1)
     end
-end
+  end
 end
