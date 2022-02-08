@@ -1,11 +1,15 @@
+require 'date'
+
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date
   attr_reader :id, :archived
+  @@id = 0
 
-  def initialize(id, publish_date, archived: true)
-    @id = id
-    @publish_date = publish_date
+  def initialize(publish_date, archived: true)
+    @id = @@id
+    @publish_date = Date.strptime(publish_date, '%d-%m-%Y')
     @archived = archived
+    @@id += 1
   end
 
   def add_genre(genre)
@@ -35,7 +39,7 @@ class Item
   private
 
   def can_be_archived?
-    current_year = time.new.year
+    current_year = Time.new.year
     publish_year = @publish_date.year
     current_year - publish_year >= 10
   end
