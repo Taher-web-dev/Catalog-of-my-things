@@ -30,5 +30,4 @@ class Database
     File.write(@file_path.to_s, '{}') unless File.exist?(@file_path)
     @file = File.open(@file_path, 'r')
   end
-
 end

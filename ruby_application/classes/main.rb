@@ -28,7 +28,7 @@ class Main
 
   def run
     loop do
-      puts "Enter a number\n"
+      puts "\n Enter a number"
       sleep 1
 
       @list.each do |key, value|
@@ -43,29 +43,29 @@ class Main
   def input(inp)
     if inp != 13
       case inp
-      when 1 
-        list_all_books
-      when 2 
+      when 1
+        list_books
+      when 2
         list_all_musicalbums
-      when 3 
+      when 3
         list_all_movies
-      when 4 
+      when 4
         list_all_games
-      when 5 
+      when 5
         list_all_genres
-      when 6 
+      when 6
         list_all_labels
-      when 7 
+      when 7
         list_all_authors
-      when 8 
+      when 8
         list_all_sources
-      when 9 
+      when 9
         add_book
-      when 10 
+      when 10
         add_music_album
-      when 11 
+      when 11
         add_a_movie
-      when 12 
+      when 12
         add_a_game
       else
         puts 'Please enter a valid number between 1 and 13!'
@@ -74,33 +74,38 @@ class Main
     end
   end
 
-  def list_all_books
-    puts "ok"
-  end
+  # def list_all_books
+  #   puts 'ok'
+  # end
 
   def list_all_musicalbums
-    puts "ok"
+    puts 'ok'
   end
 
   def list_all_movies
-    puts "ok"
+    puts 'ok'
   end
 
   def list_all_games
-    puts "ok"
+    puts 'ok'
   end
+
   def list_all_genres
-    puts "ok"
-  end 
+    puts 'ok'
+  end
+
   def list_all_labels
-    puts "ok"
+    puts 'ok'
   end
+
   def list_all_authors
-    puts "ok"
+    puts 'ok'
   end
+
   def list_all_sources
-    puts "ok"
+    puts 'ok'
   end
+
   # def add_book
   #   puts "ok"
   # end
@@ -108,21 +113,22 @@ class Main
   #   puts "ok"
   # end
   def add_a_movie
-    puts "ok"
+    puts 'ok'
   end
+
   def add_a_game
-    print "publish_date:  "
+    print 'publish_date:  '
     publish_date = gets.chomp
-    while !publish_date.match(%r{^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$})
+    until publish_date.match(/^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$/)
       puts 'Please enter a valid date in this format **-**-****'
       print 'publish_date: '
       publish_date = gets.chomp
     end
-    print "multiplayer: "
+    print 'multiplayer: '
     multiplayer = gets.chomp
     print 'last_played_at: '
     last_played_at = gets.chomp
-    while !last_played_at.match(%r{^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$})
+    until last_played_at.match(/^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$/)
       puts 'Please enter a valid last played date in this format **-**-****'
       print 'last_played_at'
       last_played_at = gets.chomp
@@ -133,7 +139,7 @@ class Main
     if File.exist?(path_file)
       contenu = JSON.parse(File.read(path_file))
       contenu.push(new_contenu)
-      File.write(path_file,JSON.generate(contenu))
+      File.write(path_file, JSON.generate(contenu))
     else
       File.write(path_file, JSON.generate([new_contenu]))
     end
