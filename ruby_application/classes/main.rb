@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'json'
-require './game'
+require './classes/game'
 class Main
   def initialize
     @list = {
@@ -123,7 +123,7 @@ class Main
     end
     game = Game.new(publish_date, multiplayer, last_played_at)
     new_contenu = { publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at }
-    path_file = '../saving_files/game.json'
+    path_file = './saving_files/game.json'
     if File.exist?(path_file)
       contenu = JSON.parse(File.read(path_file))
       contenu.push(new_contenu)

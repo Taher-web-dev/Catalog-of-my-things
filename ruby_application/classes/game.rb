@@ -1,6 +1,6 @@
 require 'date'
-#require './ruby_application/classes/item'
-require './item'
+require './classes/item'
+#require './item'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
