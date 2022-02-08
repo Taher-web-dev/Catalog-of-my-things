@@ -35,8 +35,8 @@ class Item
   private
 
   def can_be_archived?
-    current_year = time.new.current_year
-    publish_year = @publish_date.current_year
+    current_year = time.new.year
+    publish_year = @publish_date.year
     current_year - publish_year >= 10
   end
 end
