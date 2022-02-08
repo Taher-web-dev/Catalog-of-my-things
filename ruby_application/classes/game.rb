@@ -1,15 +1,12 @@
 require 'date'
-require_relative './item'
-require_relative './all_games'
+require './item'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  ALL_GAMES = AllGames.new
   def initialize(publish_date, multiplayer, last_played_at, archived: true)
     super(publish_date, archived: archived)
     @multiplayer = multiplayer
     @last_played_at = Date.strptime(last_played_at, '%d-%m-%Y')
-    ALL_GAMES.all_games << self
   end
 
   private
