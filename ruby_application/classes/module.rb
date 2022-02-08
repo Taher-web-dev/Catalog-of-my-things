@@ -1,3 +1,4 @@
+require_relative './book'
 module App_fcts
     def input(inp)
         if inp != 13
@@ -34,7 +35,11 @@ module App_fcts
       end
     
       def list_all_books
-        puts "ok"
+        books = Book::ALL_BOOKS
+        books.each do |book|
+          puts "[Book] ID:#{book.id}, Author:#{book.publisher}, Publish Date:#{book.publish_date}"
+        end
+        sleep 2
       end
     
       def list_all_musicalbums
@@ -61,7 +66,8 @@ module App_fcts
         puts "ok"
       end
       def add_book
-        puts "ok"
+        Book.new('Michael Nakhla','new', '15-12-2017')
+        Book.new('Management','old', '10-12-2010')
       end
       def add_a_musicalbum
         puts "ok"
