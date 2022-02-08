@@ -5,6 +5,7 @@ require './classes/game'
 class Main
   include AppFcts
   def initialize
+    load_data
     @list = {
       '1' => 'List all books',
       '2' => 'List all music albums',
@@ -21,19 +22,17 @@ class Main
       '13' => 'Exit'
     }
   end
-
-  def run
-    loop do
-      puts "Enter a number\n"
-      sleep 1
-
-      @list.each do |key, value|
-        puts "#{key} - #{value}"
+  def load_games
+    path = './saving_files/game.json'
+    if File.exist?(path)
+      contenu = JSON.parse(File.read(path))
+      contenu.each do |game|
+        Game.new(game["publish_date"], game["multiplayer"], game["last_played_at"])
       end
-      user_input = gets.chomp.to_i
-      input(user_input)
-      break if user_input == 13
     end
+  end
+  def load_data
+    load_games
   end
 end
 

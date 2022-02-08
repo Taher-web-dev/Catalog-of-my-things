@@ -1,4 +1,6 @@
 require_relative './game'
+require_relative './author'
+require_relative './book'
 module AppFcts
   def input(inp)
     unless inp == 13
@@ -33,8 +35,12 @@ module AppFcts
 
   def list_all_games
     games = Game::ALL_GAMES.all_games
-    games.each do |game|
-      puts "[GAME] ID:#{game.id}, Publish Date:#{game.publish_date}, Last played at:#{game.last_played_at}"
+    if games.size > 0
+      games.each do |game|
+        puts "[GAME] ID:#{game.id}, Publish Date:#{game.publish_date}, Last played at:#{game.last_played_at}"
+      end
+    else
+      puts 'No games to display...'
     end
     sleep 2
   end
@@ -48,14 +54,25 @@ module AppFcts
   end
 
   def list_all_authors
-    puts 'ok'
+    authors = Author::ALL_AUTHORS.all_authors
+    if authors.size > 0
+      authors.each do |author|
+        puts "ID:#{author.id}, Name:#{author.first_name} #{author.last_name}"
+      end
+    else 
+        puts 'No authors to display...'
+    end
+    sleep 2
   end
 
   def list_all_sources
     puts 'ok'
   end
 
-  def add_book; end
+  def add_book
+    book = Book.new('Editions europe', 'covered', '12-10-2020')
+    book.add_author(Author.new('Michael','Nakhla'))
+  end
 
   def add_a_musicalbum
     puts 'ok'
@@ -87,7 +104,20 @@ module AppFcts
     puts 'Game created successfuly'
     sleep 2
   end
+  
+  def run
+    loop do
+      puts "Enter a number\n"
+      sleep 1
 
+      @list.each do |key, value|
+        puts "#{key} - #{value}"
+      end
+      user_input = gets.chomp.to_i
+      input(user_input)
+      break if user_input == 13
+    end
+  end
   private
 
   def control_date(entry_date, text)
