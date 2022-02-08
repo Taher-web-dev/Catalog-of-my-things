@@ -3,7 +3,7 @@ require 'json'
 require_relative './module'
 require './classes/game'
 class Main
-  include App_fcts
+  include AppFcts
   def initialize
     @list = {
       '1' => 'List all books',
