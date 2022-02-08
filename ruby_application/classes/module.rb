@@ -1,4 +1,4 @@
-require_relative './book'
+require_relative './game'
 module App_fcts
     def input(inp)
         if inp != 13
@@ -35,11 +35,7 @@ module App_fcts
       end
     
       def list_all_books
-        books = Book::ALL_BOOKS
-        books.each do |book|
-          puts "[Book] ID:#{book.id}, Author:#{book.publisher}, Publish Date:#{book.publish_date}"
-        end
-        sleep 2
+        
       end
     
       def list_all_musicalbums
@@ -51,7 +47,11 @@ module App_fcts
       end
     
       def list_all_games
-        puts "ok"
+        games = Game::ALL_GAMES
+        games.each do |game|
+          puts "[GAME] ID:#{game.id}, Publish Date:#{game.publish_date}, Last played at:#{game.last_played_at}"
+        end
+        sleep 2
       end
       def list_all_genres
         puts "ok"

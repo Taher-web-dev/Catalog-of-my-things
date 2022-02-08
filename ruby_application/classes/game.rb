@@ -3,11 +3,12 @@ require './classes/item'
 #require './item'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
-
+  ALL_GAMES = []
   def initialize(publish_date, multiplayer, last_played_at, archived: true)
     super(publish_date, archived: archived)
     @multiplayer = multiplayer
     @last_played_at = Date::strptime(last_played_at,"%d-%m-%Y")
+    ALL_GAMES << self
   end
 
   private
