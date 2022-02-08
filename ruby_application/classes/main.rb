@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 require 'json'
 require './game'
-require '../modules/add_items.rb'
+require '../modules/add_items'
+require '../modules/list_items'
 require './database'
 
 class Main
@@ -61,7 +62,7 @@ class Main
       when 9 
         add_book
       when 10 
-        add_a_musicalbum
+        add_music_album
       when 11 
         add_a_movie
       when 12 
