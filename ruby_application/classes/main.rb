@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'json'
 require_relative './module'
-require './classes/game'
+require_relative './game'
 class Main
   include AppFcts
   def initialize
