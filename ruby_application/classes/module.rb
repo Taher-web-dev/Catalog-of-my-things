@@ -2,7 +2,6 @@ require_relative './game'
 require_relative './author'
 require_relative './book'
 module AppFcts
-
   def list_all_books; end
 
   def list_all_musicalbums

@@ -45,38 +45,24 @@ class Main
 
   def input(inp)
     if inp != 13
-      case inp
-      when 1
-        list_books
-      when 2
-        list_albums
-      when 3
-        list_all_movies
-      when 4
-        list_all_games
-      when 5
-        list_all_genres
-      when 6
-        list_labels
-      when 7
-        list_all_authors
-      when 8
-        list_all_sources
-      when 9
-        add_book
-      when 10
-        add_music_album
-      when 11
-        add_a_movie
-      when 12
-        add_a_game
-      else
-        puts 'Please enter a valid number between 1 and 13!'
-        sleep 2
-      end
+      list_books if inp == 1
+      list_albums if inp == 2
+      list_all_movies if inp == 3
+      list_all_games if inp == 4
+      list_all_genres if inp == 5
+      list_labels if inp == 6
+      list_all_authors if inp == 7
+      list_all_sources if inp == 8
+      add_book if inp == 9
+      add_music_album if inp == 10
+      add_a_movie if inp == 11
+      add_a_game if inp == 12
+      puts 'Please enter a valid number between 1 and 13!' unless (1..12).include?(inp)
+      sleep 2
     end
   end
-  private 
+
+  private
 
   def load_games
     path = '../saving_files/game.json'
@@ -87,6 +73,7 @@ class Main
       end
     end
   end
+
   def load_data
     load_games
   end
