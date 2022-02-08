@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+require 'json'
+require './game'
 class Main
   def initialize
     @list = {
@@ -18,45 +21,50 @@ class Main
   end
 
   def run
-    puts 'Please Enter a number'
     loop do
-      puts 'Enter a valid number'
+      puts "Enter a number\n"
+      sleep 1
+
       @list.each do |key, value|
         puts "#{key} - #{value}"
       end
       user_input = gets.chomp.to_i
-      if user_input == 13
-        break
       input(user_input)
+      break if user_input == 13
     end
   end
 
   def input(inp)
-    case inp
-    when 1 
-      list_all_books
-    when 2 
-      list_all_musicalbums
-    when 3 
-      list_all_movies
-    when 4 
-      list_all_games
-    when 5 
-      list_all_genres
-    when 6 
-      list_all_labels
-    when 7 
-      list_all_authors
-    when 8 
-      list_all_sources
-    when 9 
-      add_book
-    when 10 
-      add_a_musicalbum
-    when 11 
-      add_a_movie
-    when 12 
-      add_a_game
+    if inp != 13
+      case inp
+      when 1 
+        list_all_books
+      when 2 
+        list_all_musicalbums
+      when 3 
+        list_all_movies
+      when 4 
+        list_all_games
+      when 5 
+        list_all_genres
+      when 6 
+        list_all_labels
+      when 7 
+        list_all_authors
+      when 8 
+        list_all_sources
+      when 9 
+        add_book
+      when 10 
+        add_a_musicalbum
+      when 11 
+        add_a_movie
+      when 12 
+        add_a_game
+      else
+        puts 'Please enter a valid number between 1 and 13!'
+        sleep 2
+      end
     end
   end
 
@@ -97,7 +105,34 @@ class Main
     puts "ok"
   end
   def add_a_game
-    puts "ok"
+    print "publish_date:  "
+    publish_date = gets.chomp
+    while !publish_date.match(%r{^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$})
+      puts 'Please enter a valid date in this format **-**-****'
+      print 'publish_date: '
+      publish_date = gets.chomp
+    end
+    print "multiplayer: "
+    multiplayer = gets.chomp
+    print 'last_played_at: '
+    last_played_at = gets.chomp
+    while !last_played_at.match(%r{^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$})
+      puts 'Please enter a valid last played date in this format **-**-****'
+      print 'last_played_at'
+      last_played_at = gets.chomp
+    end
+    game = Game.new(publish_date, multiplayer, last_played_at)
+    new_contenu = { publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at }
+    path_file = '../saving_files/game.json'
+    if File.exist?(path_file)
+      contenu = JSON.parse(File.read(path_file))
+      contenu.push(new_contenu)
+      File.write(path_file,JSON.generate(contenu))
+    else
+      File.write(path_file, JSON.generate([new_contenu]))
+    end
+    puts 'Game created successfuly'
+    sleep 2
   end
 end
 
