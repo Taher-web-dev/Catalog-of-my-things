@@ -4,7 +4,7 @@ require './classes/item'
 describe Label do
   context 'Test the label class' do
       newlabel = Label.new('test label', 'black')
-      newitem = Item.new('150','2/2/2022')
+      newitem = Item.new('2-2-2022')
     
 
     it 'test the label title' do
