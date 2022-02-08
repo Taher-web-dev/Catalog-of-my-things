@@ -1,13 +1,16 @@
 #!/usr/bin/env ruby
-require 'json'
-require './game'
-require '../modules/add_items'
-require '../modules/list_items'
-require './database'
 
+require 'json'
+require_relative './game'
+require_relative '../modules/add_items'
+require_relative '../modules/list_items'
+require_relative './database'
+require_relative './module'
 class Main
   include CreateItems
+  include AppFcts
   def initialize
+    load_data
     @database = Database.new
     @list = {
       '1' => 'List all books',
@@ -73,60 +76,19 @@ class Main
       end
     end
   end
+  private 
 
-  def list_all_movies
-    puts 'ok'
-  end
-
-  def list_all_games
-    puts 'ok'
-  end
-
-  def list_all_genres
-    puts 'ok'
-  end
-
-  def list_all_authors
-    puts 'ok'
-  end
-
-  def list_all_sources
-    puts 'ok'
-  end
-
-  def add_a_movie
-    puts 'ok'
-  end
-
-  def add_a_game
-    print 'publish_date:  '
-    publish_date = gets.chomp
-    until publish_date.match(/^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$/)
-      puts 'Please enter a valid date in this format **-**-****'
-      print 'publish_date: '
-      publish_date = gets.chomp
+  def load_games
+    path = '../saving_files/game.json'
+    if File.exist?(path)
+      contenu = JSON.parse(File.read(path))
+      contenu.each do |game|
+        Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
+      end
     end
-    print 'multiplayer: '
-    multiplayer = gets.chomp
-    print 'last_played_at: '
-    last_played_at = gets.chomp
-    until last_played_at.match(/^\d{1,2}-\d{1,2}-\d{2}(\d{2})*$/)
-      puts 'Please enter a valid last played date in this format **-**-****'
-      print 'last_played_at'
-      last_played_at = gets.chomp
-    end
-    game = Game.new(publish_date, multiplayer, last_played_at)
-    new_contenu = { publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at }
-    path_file = './saving_files/game.json'
-    if File.exist?(path_file)
-      contenu = JSON.parse(File.read(path_file))
-      contenu.push(new_contenu)
-      File.write(path_file, JSON.generate(contenu))
-    else
-      File.write(path_file, JSON.generate([new_contenu]))
-    end
-    puts 'Game created successfuly'
-    sleep 2
+  end
+  def load_data
+    load_games
   end
 end
 

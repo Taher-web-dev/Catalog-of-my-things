@@ -2,26 +2,6 @@ require_relative './game'
 require_relative './author'
 require_relative './book'
 module AppFcts
-  def input(inp)
-    unless inp == 13
-      list_all_books if inp == 1
-      list_all_musicalbums if inp == 2
-      list_all_movies if inp == 3
-      list_all_games if inp == 4
-      list_all_genres if inp == 5
-      list_all_labels if inp == 6
-      list_all_authors if inp == 7
-      list_all_sources if inp == 8
-      add_book if inp == 9
-      add_a_musicalbum if inp == 10
-      add_a_movie if inp == 11
-      add_a_game if inp == 12
-      unless (1..12).include?(inp)
-        puts 'Please enter a valid number between 1 and 13!'
-        sleep 2
-      end
-    end
-  end
 
   def list_all_books; end
 
@@ -69,11 +49,6 @@ module AppFcts
     puts 'ok'
   end
 
-  def add_book
-    book = Book.new('Editions europe', 'covered', '12-10-2020')
-    book.add_author(Author.new('Michael', 'Nakhla'))
-  end
-
   def add_a_musicalbum
     puts 'ok'
   end
@@ -93,7 +68,7 @@ module AppFcts
     last_played_at = control_date last_played_at, 'last_played_at: '
     Game.new(publish_date, multiplayer, last_played_at)
     new_contenu = { publish_date: publish_date, multiplayer: multiplayer, last_played_at: last_played_at }
-    path_file = './saving_files/game.json'
+    path_file = '../saving_files/game.json'
     if File.exist?(path_file)
       contenu = JSON.parse(File.read(path_file))
       contenu.push(new_contenu)
@@ -103,20 +78,6 @@ module AppFcts
     end
     puts 'Game created successfuly'
     sleep 2
-  end
-
-  def run
-    loop do
-      puts "Enter a number\n"
-      sleep 1
-
-      @list.each do |key, value|
-        puts "#{key} - #{value}"
-      end
-      user_input = gets.chomp.to_i
-      input(user_input)
-      break if user_input == 13
-    end
   end
 
   private

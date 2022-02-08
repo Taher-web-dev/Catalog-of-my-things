@@ -9,7 +9,7 @@ class Database
   end
 
   def save(data, file_name)
-    check_files(file_name)
+    check(file_name)
     json = JSON.parse(@file.read)
     id = json.keys.length + 1
     json[id] = data
