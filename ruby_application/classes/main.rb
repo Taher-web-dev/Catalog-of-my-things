@@ -7,7 +7,7 @@ require './database'
 class Main
   include CreateItems
   def initialize
-    @db = Database.new
+    @database = Database.new
     @list = {
       '1' => 'List all books',
       '2' => 'List all music albums',
@@ -103,9 +103,9 @@ class Main
   # def add_book
   #   puts "ok"
   # end
-  def add_a_musicalbum
-    puts "ok"
-  end
+  # def add_a_musicalbum
+  #   puts "ok"
+  # end
   def add_a_movie
     puts "ok"
   end

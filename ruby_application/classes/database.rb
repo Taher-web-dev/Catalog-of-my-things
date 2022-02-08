@@ -18,7 +18,7 @@ class Database
     true
   end
 
-  def get_all_data_of(file_name)
+  def get_data_from(file_name)
     check_files(file_name)
     JSON.parse(@file.read).map { |id, data| data.merge({ 'id' => id }) }
   end
