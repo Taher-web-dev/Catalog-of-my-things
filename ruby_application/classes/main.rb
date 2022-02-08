@@ -54,7 +54,7 @@ class Main
       when 5
         list_all_genres
       when 6
-        list_all_labels
+        list_labels
       when 7
         list_all_authors
       when 8
@@ -94,9 +94,9 @@ class Main
     puts 'ok'
   end
 
-  def list_all_labels
-    puts 'ok'
-  end
+  # def list_all_labels
+  #   puts 'ok'
+  # end
 
   def list_all_authors
     puts 'ok'
