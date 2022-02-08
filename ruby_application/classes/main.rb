@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
 require 'json'
-require './classes/game'
+require './game'
+require '../modules/add_items.rb'
+require './database'
+
 class Main
+  include CreateItems
   def initialize
+    @db = Database.new
     @list = {
       '1' => 'List all books',
       '2' => 'List all music albums',
@@ -95,9 +100,9 @@ class Main
   def list_all_sources
     puts "ok"
   end
-  def add_book
-    puts "ok"
-  end
+  # def add_book
+  #   puts "ok"
+  # end
   def add_a_musicalbum
     puts "ok"
   end
