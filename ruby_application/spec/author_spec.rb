@@ -1,5 +1,5 @@
-require './ruby_application/classes/author'
-require './ruby_application/classes/item'
+require './classes/author'
+require './classes/item'
 describe Author do
   item = Item.new('15-01-2015', archived: false)
   author = Author.new('Michael', 'Nakhla')

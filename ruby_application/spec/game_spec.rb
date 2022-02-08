@@ -1,4 +1,4 @@
-require './ruby_application/classes/game'
+require './classes/game'
 describe Game do
   it 'Archive game when it is older than 10 year and its last played has more than 2 years' do
     game1 = Game.new('01-01-2009', 'multiplayer', '01-05-2018', archived: false)

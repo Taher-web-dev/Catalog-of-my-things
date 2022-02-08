@@ -1,6 +1,6 @@
-require './ruby_application/classes/item'
-require './ruby_application/classes/genre'
-require './ruby_application/classes/author'
+require './classes/item'
+require './classes/genre'
+require './classes/author'
 describe Item do
   item = Item.new('15-12-2010', archived: false)
   it 'Add genre when use add_genre' do
