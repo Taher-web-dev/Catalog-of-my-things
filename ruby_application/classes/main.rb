@@ -65,7 +65,7 @@ class Main
   def load_games
     path = '../saving_files/game.json'
     if File.exist?(path)
-      print ("exist")
+      print('exist')
       contenu = JSON.parse(File.read(path))
       contenu.each do |game|
         Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
