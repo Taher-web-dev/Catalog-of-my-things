@@ -25,6 +25,8 @@ $ cd Catalog-of-my-things.
 ```
 - Finally run <b>./ruby_application/classes/main.rb</b> in your console.
 
+## Description Video:
+https://drive.google.com/file/d/1GSLZGoWQMcMRziihROz2E6jisOc3916z/view?usp=sharing
 
 ## Authors
 
