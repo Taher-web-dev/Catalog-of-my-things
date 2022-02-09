@@ -41,7 +41,7 @@ $ cd Catalog-of-my-things.
 👤 **Daniel Shdeed**
 
 - GitHub: [@Danieldotcomcoder](https://github.com/Danieldotcomcoder)
-- LinkedIn: [LinkedIn]()
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/daniel-shdeed/)
 
 ## 🤝 Contributing
 
