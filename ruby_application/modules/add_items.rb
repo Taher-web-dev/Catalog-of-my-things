@@ -1,11 +1,13 @@
 require_relative '../classes/book'
 require_relative './list_items'
+require_relative './module'
 require_relative '../classes/label'
 require_relative '../classes/genre'
+require_relative '../classes/author'
 require_relative '../classes/music_album'
 
 module CreateItems
-
+include AppFcts
 include ListItems
 
     def add_book
@@ -18,6 +20,7 @@ include ListItems
         puts "Enter the state of the cover? (bad or good)"
         cover_state = gets.chomp
         newbook = Book.new(publisher, publish_date, cover_state)
+        newbook.add_author(Author.new('first_name','last_name'))
         bookdata = { publisher: newbook.publisher, cover_state: newbook.cover_state, publish_date: newbook.publish_date, label: label.title }
         @database.save(bookdata,'books')
         puts "book created successfully!"

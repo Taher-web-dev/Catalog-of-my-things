@@ -5,10 +5,9 @@ require_relative './game'
 require_relative '../modules/add_items'
 require_relative '../modules/list_items'
 require_relative './database'
-require_relative './module'
+# require_relative './module'
 class Main
   include CreateItems
-  include AppFcts
   def initialize
     load_data
     @database = Database.new
@@ -49,7 +48,7 @@ class Main
       list_albums if inp == 2
       list_all_movies if inp == 3
       list_all_games if inp == 4
-      list_all_genres if inp == 5
+      list_genres if inp == 5
       list_labels if inp == 6
       list_all_authors if inp == 7
       list_all_sources if inp == 8
