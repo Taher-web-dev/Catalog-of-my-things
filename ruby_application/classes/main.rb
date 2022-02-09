@@ -5,7 +5,6 @@ require_relative './game'
 require_relative '../modules/add_items'
 require_relative '../modules/list_items'
 require_relative './database'
-# require_relative './module'
 class Main
   include CreateItems
   def initialize
@@ -66,6 +65,7 @@ class Main
   def load_games
     path = '../saving_files/game.json'
     if File.exist?(path)
+      print ("exist")
       contenu = JSON.parse(File.read(path))
       contenu.each do |game|
         Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
