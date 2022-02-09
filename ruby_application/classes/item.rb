@@ -15,17 +15,17 @@ class Item
 
   def add_genre(genre)
     @genre = genre
-    @genre.add_items(self)
+    @genre.add_item(self)
   end
 
   def add_author(author)
     @author = author
-    @author.add_items(self)
+    @author.add_item(self)
   end
 
   def add_source(source)
     @source = source
-    @source.add_items(self)
+    @source.add_item(self)
   end
 
   def add_label(label)
